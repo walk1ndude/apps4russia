@@ -1,10 +1,10 @@
-DS_Store
+S_Store
 .idea
 
 uploads/*
 
-#Byte-compiled / optimized / DLL files
-__pycache__/
+Byte-compiled / optimized / DLL files
+_pycache__/
 *.py[cod]
 
 # C extensions
@@ -57,4 +57,7 @@ docs/_build/
 
 # PyBuilder
 target/
+<<<<<<< HEAD
+>>>>>>> 1965641a667e26b17c8bb0c42ba854d4d4137beb
+=======
 >>>>>>> 1965641a667e26b17c8bb0c42ba854d4d4137beb

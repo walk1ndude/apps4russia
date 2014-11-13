@@ -38,15 +38,15 @@ def parse_docx(file):
     document.close()
     tree = XML(xml_content)
 
-    paragraphs = []
+    parsed_paragraphs = []
     for paragraph in tree.getiterator(PARA):
         texts = [node.text
                  for node in paragraph.getiterator(TEXT)
                  if node.text]
         if texts:
-            paragraphs.append(''.join(texts))
+	        parsed_paragraphs.append(run_glr(''.join(texts)))
 
-    return run_glr(paragraphs)
+    return parsed_paragraphs
 
 
 def parse_pdf(file):

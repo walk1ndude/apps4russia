@@ -2,7 +2,7 @@ apps4russia
 ===========
 Работоспособность проверена на 2.7.8
 
-Поставить python-docx, pdfminer
+Поставить pdfminer
 
 Запустить файл app.py
 

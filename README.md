@@ -1,5 +1,9 @@
 apps4russia
 ===========
+Работоспособность проверена на 2.7.8
+
+Поставить python-docx, pdfminer
+
 Запустить файл app.py
 
 Перейти на http://localhost:5000

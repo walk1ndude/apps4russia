@@ -11,10 +11,4 @@ grammar = u"""
 
 def run_glr(text, grammar=grammar, dictionaries=dictionaries):
 	glr = GLRParser(grammar, dictionaries=dictionaries, debug=False)
-
-	result = []
-
-	for parsed in glr.parse(text):
-		result.append(parsed)
-
-	return result
+	return glr.parse(text)

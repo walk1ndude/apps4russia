@@ -11,7 +11,7 @@ from werkzeug import secure_filename
 import docparser
 
 # Initialize the Flask application
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 # This is the path to the upload directory
 app.config['UPLOAD_FOLDER'] = 'uploads/'
@@ -26,6 +26,7 @@ def allowed_file(filename):
 # This route will show a form to perform an AJAX request
 # jQuery is loaded to execute the request and update the
 # value of the operation
+@app.route('/index.html')
 @app.route('/')
 def index():
 	return render_template('index.html')

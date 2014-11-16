@@ -1,14 +1,29 @@
 # -*- coding: utf-8 -*-
 from glr import GLRParser
 
-dictionaries = {
-    u"CLOTHES": [u"куртка", u"пальто", u"шубы"]
+dictionaries_implementer = {
+    u"IMPL": [u"исполнитель", u"Исполнитель"],
 }
 
-grammar = u"""
-    S = adj<agr-gnc=1> CLOTHES
+dictionaries_customer = {
+    u"CUST": [u"заказчик", u"Заказчик"],
+}
+
+
+grammar_impl = u"""
+    S = IMPL
 """
 
-def run_glr(text, grammar=grammar, dictionaries=dictionaries):
-	glr = GLRParser(grammar, dictionaries=dictionaries, debug=False)
-	return glr.parse(text)
+grammar_cust = u"""
+    S = CUST
+"""
+
+
+def run_glr(text):
+	glr = GLRParser(grammar_impl, dictionaries=dictionaries_implementer, debug=False)
+	result_impl= glr.parse(text)
+
+	glr = GLRParser(grammar_cust, dictionaries=dictionaries_customer, debug=False)
+	result_cust= glr.parse(text)
+
+	return (result_impl, result_cust)

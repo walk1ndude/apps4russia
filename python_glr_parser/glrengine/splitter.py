@@ -3,7 +3,7 @@ import re
 
 
 class GLRSplitter(object):
-    split_re = re.compile(r"[!?;\.]+ ", re.M | re.U | re.I)
+    split_re = re.compile(r"[!?;\._]+ ", re.M | re.U | re.I)
 
     def clear(self, text):
         # удалить все символы из текста, кроме тех, которые точно разберет парсер

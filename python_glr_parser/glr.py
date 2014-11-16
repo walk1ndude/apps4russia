@@ -64,13 +64,11 @@ class GLRParser(object):
 		)
 
 	def parse(self, text):
-		findings=[]
 		sentences=[]
-		result = (findings,sentences)
 		for sentence in self.splitter(text):
-			findings.append(self.glr(sentence))
-			sentences.append(sentence)
-		return result
+			if(len(self.glr(sentence))>0):
+				sentences.append(sentence)
+		return sentences
 
 
 # TODO:

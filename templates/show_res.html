@@ -2,13 +2,14 @@
 
         {% block content %}
     <div class="container">
-      <p>My string: {{my_string}}</p>
-      <p>Value from the list: {{my_list[3]}}</p>
-      <p>Loop through the list:</p>
-      <ul>
+      <br>
+        <p>Результаты разбора договора</p>
+      <br>
+
+        <ul class="list">
         {% for n in my_list %}
         <li>{{n}}</li>
         {% endfor %}
-      </ul>
+        </ul>
     </div>
         {% endblock %}

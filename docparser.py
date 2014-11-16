@@ -30,6 +30,7 @@ PARA = WORD_NAMESPACE + 'p'
 TEXT = WORD_NAMESPACE + 't'
 
 
+
 def parse_docx(file):
 	"""
 	Take the path of a docx file as argument, return the text in unicode.
@@ -40,12 +41,15 @@ def parse_docx(file):
 	tree = XML(xml_content)
 
 	parsed_paragraphs = []
+	texts=''
 	for paragraph in tree.getiterator(PARA):
-		texts = [node.text
+		par=([node.text
 				 for node in paragraph.getiterator(TEXT)
-				 if node.text]
-		if texts:
-			parsed_paragraphs.append(run_glr(''.join(texts)))
+				 if node.text])
+		texts=texts+''.join(par);
+
+	if texts:
+		parsed_paragraphs.append(run_glr(texts))
 
 	return parsed_paragraphs
 

@@ -59,13 +59,17 @@ def upload():
 		sentences=[]
 		# jsonify({'data': parsed_result})
 		for par in parsed_paragraphs:
-
 			for s in par[0]:
-				if(len(s)>0):
-					sentences.append(s[0])
-			sentences.append('s')
+				#костыль - если первая буква предложения маленькая или цифра, то не выводим его
+				# (а по хорошему, нужно было объединить с предыдущим предложением еще да GLR)
+				if(s[0].isupper()):
+					sentences.append(s)
+
+		for par in parsed_paragraphs:
 			for s in par[1]:
-				if(len(s)>0):
+				#костыль - если первая буква предложения маленькая или цифра, то не выводим его
+				# (а по хорошему, нужно было объединить с предыдущим предложением еще да GLR)
+				if(s[0].isupper()):
 					sentences.append(s)
 
 		return render_template('show_res.html', my_string="Wheeeee!", my_list=sentences)
@@ -79,6 +83,6 @@ def uploaded_file(filename):
 if __name__ == '__main__':
 	app.run(
 		host="0.0.0.0",
-		port=int("5000"),
-		debug=None
+		port=int("8010"),
+		debug=True
 	)

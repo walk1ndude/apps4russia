@@ -1,0 +1,198 @@
+/* Eric Meyer's CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* End of Eric Meyer's CSS Reset */
+
+html {
+	height: 100%;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+	display: block;
+}
+body {
+	font: 12px/18px Arial, sans-serif;
+	width: 100%;
+	height: 100%;
+}
+.wrapper {
+	width: 800px;
+	margin: 0 auto;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+
+h3
+{
+	font-size: 18px;
+	text-align: center;
+	font-weight: normal;
+	color: #ed9525;
+}
+
+p
+{
+	text-align: left;
+	color: #999999;
+	font-size: 22px;
+}
+
+hr.style-four {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	margin: 20px 0 20px 0;
+}
+
+/* Header
+-----------------------------------------------------------------------------*/
+.header {
+	height: 75px;
+	padding-top: 60px;
+}
+
+.text-muted
+{
+	font-size: 36px;
+	color: #ed9525;
+	float: left;
+}
+
+ul.menu
+{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	float: right;
+	display: inline-block;
+	vertical-align: middle;
+}
+ul.menu li {
+   float: left;
+   display: inline;
+} 
+
+ul.menu li a, ul.menu li a:visited {
+   padding: 15px;
+   margin-right: 1px;
+   color: #ed9525;
+   text-decoration: underline;
+   font-size: 18px;
+}
+
+ul.menu a:hover {
+   text-decoration: none;
+}
+
+
+/* Middle
+-----------------------------------------------------------------------------*/
+.content {
+	padding: 0 0 100px;
+}
+
+.text-muted-h2
+{
+	font-size: 25px;
+	color: #ed9525;
+	float: left;
+}
+
+#main-buttons
+{
+	text-align: center;
+	position: relative;
+}
+
+.activ
+{
+	height: 196px;
+	width: 103px;
+	text-align: center;
+	margin-left: 51px;
+	margin-top: 46px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#arrow
+{
+	margin-left: 24px;
+}
+
+.activ img
+{
+	margin: 0 auto;
+}
+
+.text
+{
+	font-size: 14px;
+	color: #6d6a6a;
+	text-align: justify;
+	text-indent: 20px;
+}
+
+.text-dev
+{
+	font-size: 14px;
+	color: #6d6a6a;
+	padding-top: 3px;
+}
+
+#developer
+{
+	float: left;
+	margin-right: 15px;
+}
+
+/* Footer
+-----------------------------------------------------------------------------*/
+.footer {
+	width: 800px;
+	margin: -100px auto 0;
+	height: 100px;
+	position: relative;
+}

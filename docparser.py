@@ -11,6 +11,8 @@ __author__ = 'walkindude'
 
 from StringIO import StringIO
 
+import re
+
 from python_glr_parser.glr_runner import run_glr
 
 try:
@@ -19,15 +21,27 @@ except ImportError:
 	from xml.etree.ElementTree import XML
 import zipfile
 
-
-"""
-Module that extract text from MS XML Word document (.docx).
-(Inspired by python-docx <https://github.com/mikemaccana/python-docx>)
-"""
-
 WORD_NAMESPACE = '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}'
 PARA = WORD_NAMESPACE + 'p'
 TEXT = WORD_NAMESPACE + 't'
+
+def preprocess_paragprahs(paragraphs):
+	i = 0
+	while i != len(paragraphs) - 2:
+		firstP, secondP = paragraphs[i], paragraphs[i + 1]
+		#параграф начинается не с заглавной буквы, то ищем первый знак препинания в данном параграфе и все
+		#что до него и его включаем в предыдущий параграф
+ 		if not secondP[0].isupper():
+			m = re.search(r'[!.?]', secondP)
+			if m:
+				paragraphs[i] = ''.join((firstP, secondP[:m.end(0)]))
+				paragraphs[i + 1] = secondP[m.end(0):]
+				i += 1
+			else:
+				paragraphs[i] = ''.join((firstP, secondP))
+				paragraphs.pop(i + 1)
+		else:
+			i += 1
 
 
 
@@ -41,15 +55,21 @@ def parse_docx(file):
 	tree = XML(xml_content)
 
 	parsed_paragraphs = []
-	texts=''
+	pars = []
 	for paragraph in tree.getiterator(PARA):
 		par=([node.text
 				 for node in paragraph.getiterator(TEXT)
 				 if node.text])
-		texts=texts+''.join(par);
+		curPar = ''.join(par)
+		if curPar:
+			pars.append(curPar)
 
-	if texts:
-		parsed_paragraphs.append(run_glr(texts))
+	if pars:
+		preprocess_paragprahs(pars)
+
+		print pars
+
+		parsed_paragraphs.append(run_glr(''.join(tuple(pars))))
 
 	return parsed_paragraphs
 
